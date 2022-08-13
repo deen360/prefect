@@ -1,0 +1,43 @@
+###
+### A complete description of a Prefect Deployment for flow 'main'
+###
+name: paris-housing-deployment
+description: null
+version: e0397a8ba21cbb847c31797a19449c34
+tags:
+- Parisjob
+parameters: {'name':'Paris'}
+schedule: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command:
+  - python
+  - -m
+  - prefect.engine
+  stream_output: true
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: main
+manifest_path: null
+storage: null
+path: /home/deen/Desktop/datatalks/mlops-project/orchestration
+entrypoint: paris_flow.py:main
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    train_path:
+      title: train_path
+      default: s3://mlops-project-dataset-deen/paris-housing-dataset/ParisHousing_period_01.parquet
+      type: string
+    val_path:
+      title: val_path
+      default: s3://mlops-project-dataset-deen/paris-housing-dataset/ParisHousing_period_02.parquet
+      type: string
+  required: null
+  definitions: null
